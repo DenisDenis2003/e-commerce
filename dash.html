@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <script src="./javascript/dash.js" async></script>
+</head>
+<body>
+  <header>
+    Dashboard
+  </header>
+  <aside>
+    <ul>
+      <li><a href="#" class="dashboardLink">Dashboard</a></li>
+      <li><a href="#" class="CustomerDisplay">Customer</a></li>
+      <li><a href="#" class="productslink">Products</a></li>
+       <li><a href="#" class="contactlink">UserContact</a></li>
+      <li><a href="#" class="logout">Logout</a></li>
+    </ul>
+  </aside>
+  <main>
+
+    <section class="dashboardcontent">
+      <h1>Welcome to Dashboard</h1>
+      <div class="cards">
+        <div class="card">
+          <h2 id="totalCustomers">0</h2>
+          <p>Total Customers</p>
+        </div>
+        <div class="card">
+          <h2 id="totalProducts">0</h2>
+          <p>Total Products</p>
+        </div>
+        <div class="card">
+          <h2 id="totalOrders">0</h2>
+          <p>Total Orders</p>
+        </div>
+      </div>
+    </section>
+
+    <section  id="customerTable">
+      <h2>Customer List</h2>
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th>S.No</th>
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>Password</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                             <!-- Data will be inserted dynamically -->
+                                          </tr>
+                                    
+                                        </tbody>
+                                      </table>
+    </section>
+
+    <section class="products">
+
+      <div class="wholeform">
+
+          <form action="" class="form"> 
+            <input type="text" class="pindex">
+              <section>
+                  <label for="" >Enter image Url</label>
+                  <input type="url" class="pimg">
+              </section>
+              <section>
+                  <label for="" >Product Name With feacture :</label>
+                  <input type="text" class="productname">
+              </section>
+              <section>
+                  <label for="">Original Price :</label>
+                  <input type="number" class="ogprice">
+              </section>
+              <section>
+                  <label for="">Discount Price :</label>
+                  <input type="number" class="dsprice">
+              </section>
+              <section>
+                  <label for="">Offer precentage :</label>
+                  <input type="text" class="offprecentage">
+              </section>
+              <section>
+                  <button type="reset">Reset</button>
+                   <button type="submit" class="uptbtn">Update</button>
+                  <button type="submit" class="smtbtn">Submit</button>
+              </section>
+
+        </form>
+
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Img url</th>
+            <th>Product Name With feacture</th>
+            <th>Original Price</th>
+            <th>Offer precentage</th>
+            <th>Offer Precentage</th>
+            <th>Offer Precentage</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+              <!-- content to be added -->
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+    <section class="usercontact">
+        <h2>Message List</h2>
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th>S.No</th>
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>Message</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                             <!-- Data will be inserted dynamically -->
+                                          </tr>
+                                    
+                                        </tbody>
+                                      </table>
+
+
+    </section>
+
+
+  </main>
+  <footer>
+    Footer
+  </footer>
+
+
+</body>
+</html>
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronics Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f9fa; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 30px; background: #fff; border-bottom: 1px solid #ccc; }
+    .logo { font-size: 20px; font-weight: bold; color: #007bff; display: flex; align-items: center; }
+    .logo i { margin-right: 6px; }
+    .search-box { position: relative; width: 300px; }
+    .search-box input { width: 100%; padding: 8px 35px 8px 12px; border-radius: 20px; border: 1px solid #ccc; outline: none; }
+    .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #007bff; }
+    .menu { display: flex; align-items: center; gap: 25px; }
+    .menu a { text-decoration: none; color: #333; font-size: 15px; display: flex; align-items: center; }
+    .menu a i { margin-right: 5px; }
+    .cart { position: relative; cursor: pointer; }
+    .cart-count { position: absolute; top: -8px; right: -10px; background: red; color: white; font-size: 12px; font-weight: bold; padding: 2px 6px; border-radius: 50%; }
+    .products { display: flex; gap: 20px; padding: 20px; flex-wrap: wrap; }
+    .product-card { background: #fff; border: 1px solid #ddd; padding: 15px; text-align: center; width: 220px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; }
+    .product-card img { max-width: 100%; border-radius: 8px; }
+    .hover-icons { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .hover-icons button { border: none; background: #fff; padding: 6px; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .hover-icons button:hover { background: #f1f1f1; }
+    .product-card h3 { font-size: 16px; margin: 10px 0 5px; }
+    .old-price { text-decoration: line-through; color: #888; font-size: 14px; }
+    .new-price { font-size: 15px; font-weight: bold; color: #007bff; }
+    .cart-popup { display: none; position: fixed; right: 20px; top: 70px; width: 350px; max-height: 400px; overflow-y: auto; background: #fff; border: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.2); border-radius: 10px; padding: 15px; z-index: 1000; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+    .cart-item h4 { margin: 0; font-size: 15px; }
+    .cart-item p { margin: 0; font-size: 13px; }
+    .qty-controls { display: flex; align-items: center; gap: 8px; }
+    .qty-controls button { padding: 3px 8px; border: none; background: #007bff; color: white; border-radius: 4px; cursor: pointer; }
+    .qty-controls button:hover { background: #0056b3; }
+    .buy-btn { margin-top: 10px; width: 100%; padding: 10px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+    .buy-btn:hover { background: darkgreen; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo"><i class="fas fa-plug"></i> Electronics</div>
+    <div class="search-box"><input type="text" placeholder="Search the device..."><i class="fas fa-search"></i></div>
+    <div class="menu">
+      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="#"><i class="fas fa-info-circle"></i> About</a>
+      <a class="cart" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count" id="cart-count">0</span></a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="products">
+    <!-- iPhone -->
+    <div class="product-card">
+      <div class="hover-icons">
+        <button><i class="fa-regular fa-heart"></i></button><button><i class="fa-solid fa-share-nodes"></i></button><button><i class="fa-regular fa-eye"></i></button>
+        <button class="cardbtn" onclick="addToCart('Apple iPhone 13', 54999)"><i class="fa-solid fa-bag-shopping"></i></button>
+      </div>
+      <img src="./img/starlight_1.jpg" alt="iPhone 13">
+      <h3>Apple iPhone 13 (128GB | Starlight)</h3>
+      <p class="old-price">₹59,999</p><p class="new-price">₹54,999</p>
+    </div>
+
+    <!-- Vivo -->
+    <div class="product-card">
+      <div class="hover-icons">
+        <button><i class="fa-regular fa-heart"></i></button><button><i class="fa-solid fa-share-nodes"></i></button><button><i class="fa-regular fa-eye"></i></button>
+        <button class="cardbtn" onclick="addToCart('Vivo V60 FE 5G', 22999)"><i class="fa-solid fa-bag-shopping"></i></button>
+      </div>
+      <img src="./img/card-2.png" alt="Vivo V60 FE">
+      <h3>Vivo V60 FE 5G (12GB/256GB | Amber Yellow)</h3>
+      <p class="old-price">₹29,999</p><p class="new-price">₹22,999</p>
+    </div>
+
+    <!-- OnePlus -->
+    <div class="product-card">
+      <div class="hover-icons">
+        <button><i class="fa-regular fa-heart"></i></button><button><i class="fa-solid fa-share-nodes"></i></button><button><i class="fa-regular fa-eye"></i></button>
+        <button class="cardbtn" onclick="addToCart('OnePlus Nord CE5 5G', 30999)"><i class="fa-solid fa-bag-shopping"></i></button>
+      </div>
+      <img src="./img/card-4.jpg" alt="OnePlus Nord CE5">
+      <h3>OnePlus Nord CE5 5G (8GB/256GB | Black Infinity)</h3>
+      <p class="old-price">₹49,999</p><p class="new-price">₹30,999</p>
+    </div>
+
+    <!-- Xiaomi TV -->
+    <div class="product-card">
+      <div class="hover-icons">
+        <button><i class="fa-regular fa-heart"></i></button><button><i class="fa-solid fa-share-nodes"></i></button><button><i class="fa-regular fa-eye"></i></button>
+        <button class="cardbtn" onclick="addToCart('Xiaomi X 43 inch 4K Google Smart TV', 26999)"><i class="fa-solid fa-bag-shopping"></i></button>
+      </div>
+      <img src="./img/card-5.png" alt="Xiaomi TV">
+      <h3>Xiaomi X 43 inch 4K Google Smart TV 2025 Edition</h3>
+      <p class="old-price">₹42,999</p><p class="new-price">₹26,999</p>
+    </div>
+
+    <!-- Smart Watch -->
+    <div class="product-card">
+      <div class="hover-icons">
+        <button><i class="fa-regular fa-heart"></i></button><button><i class="fa-solid fa-share-nodes"></i></button><button><i class="fa-regular fa-eye"></i></button>
+        <button class="cardbtn" onclick="addToCart('Boat Ultima Prime Smart Watch', 54999)"><i class="fa-solid fa-bag-shopping"></i></button>
+      </div>
+      <img src="./img/card-9.jpg" alt="Boat Watch">
+      <h3>Boat Ultima Prime Smart Watch | Steel Black</h3>
+      <p class="old-price">₹59,999</p><p class="new-price">₹54,999</p>
+    </div>
+
+    <!-- Laptop -->
+    <div class="product-card">
+      <div class="hover-icons">
+        <button><i class="fa-regular fa-heart"></i></button><button><i class="fa-solid fa-share-nodes"></i></button><button><i class="fa-regular fa-eye"></i></button>
+        <button class="cardbtn" onclick="addToCart('HP Intel Core i3 Laptop', 49999)"><i class="fa-solid fa-bag-shopping"></i></button>
+      </div>
+      <img src="./img/card-13.jpg" alt="HP Laptop">
+      <h3>HP Intel Core i3 Laptop (8GB/512GB)</h3>
+      <p class="old-price">₹44,999</p><p class="new-price">₹49,999</p>
+    </div>
+
+    <!-- Realme -->
+    <div class="product-card">
+      <div class="hover-icons">
+        <button><i class="fa-regular fa-heart"></i></button><button><i class="fa-solid fa-share-nodes"></i></button><button><i class="fa-regular fa-eye"></i></button>
+        <button class="cardbtn" onclick="addToCart('Realme 15 5G FE', 27999)"><i class="fa-solid fa-bag-shopping"></i></button>
+      </div>
+      <img src="./img/card-3.png" alt="Realme 15 FE">
+      <h3>Realme 15 5G FE (8GB/256GB | Silk Pink)</h3>
+      <p class="old-price">₹31,999</p><p class="new-price">₹27,999</p>
+    </div>
+  </div>
+
+  <!-- Cart Popup -->
+  <div class="cart-popup" id="cart-popup">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <h4>Total: ₹<span id="cart-total">0</span></h4>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+
+  <script>
+    let cart = [];
+    function addToCart(name, price) {
+      let item = cart.find(p => p.name === name);
+      if(item){ 
+        item.qty++; 
+      } else {
+         cart.push({name, price, qty: 1}); 
+      }
+      updateCart();
+    }
+
+
+    
+    function updateCart() {
+      const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cart-count").textContent = cartCount;
+      const cartItems = document.getElementById("cart-items");
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price * item.qty;
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <div><h4>${item.name}</h4><p>₹${item.price} x ${item.qty} = ₹${item.price * item.qty}</p></div>
+            <div class="qty-controls">
+              <button onclick="changeQty(${index}, -1)">-</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQty(${index}, 1)">+</button>
+            </div>
+          </div>`;
+      });
+      document.getElementById("cart-total").textContent = total;
+    }
+    function changeQty(index, change) {
+      cart[index].qty += change;
+      if(cart[index].qty <= 0){ cart.splice(index, 1); }
+      updateCart();
+    }
+    function toggleCart() {
+      const popup = document.getElementById("cart-popup");
+      popup.style.display = (popup.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/contactus.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <script src="./javascript/contactus.js" async></script>
+</head>
+<body>
+
+    <nav class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <i class="fa-solid fa-plug"></i> Electronics
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search the device...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <!-- Links -->
+    <div class="nav-links">
+      <a href="./home.html"><i class="fa-solid fa-house"></i> Home</a>
+      <!-- <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a> -->
+      <a href="./aboutus.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="#"><i class="fa-solid fa-cart-shopping"></i> Cart
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+    
+  <section class="contact-section">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you! Fill out the form and our team will get back to you soon.</p>
+
+    <div class="contact-container">
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required id="uname"/>
+        <input type="email" placeholder="Your Email" required id="uemail"/>
+        <textarea rows="5" placeholder="Your Message" required id="umessage"></textarea>
+        <button type="submit" id="contactsubmit">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p><i class="fas fa-envelope"></i> support@electronics.com</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fas fa-map-marker-alt"></i> Bengaluru, India</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Logo & About -->
+      <div class="footer-col">
+        <h2 class="footer-logo"><i class="fa-solid fa-plug"></i> Electronics</h2>
+        <p>
+          Explore the future of electronics with premium smartphones, laptops, 
+          smartwatches, and smart TVs. Technology designed for performance and lifestyle.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="./home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="./aboutus.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+          <!-- <li><a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li> -->
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="./faq.html">FAQ</a></li>
+          <!-- <li><a href="#">Shipping & Returns</a></li> -->
+          <li><a href="./warenty.html">Warranty</a></li>
+          <li><a href="./contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Electronics Store | All Rights Reserved</p>
+    </div>
+  </footer>
+ 
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Section</title>
+  <link rel="stylesheet" href="./css/faq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <i class="fa-solid fa-plug"></i> Electronics
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search the device...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <!-- Links -->
+    <div class="nav-links">
+      <a href="./home.html"><i class="fa-solid fa-house"></i> Home</a>
+      <!-- <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a> -->
+      <a href="./aboutus.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="#"><i class="fa-solid fa-cart-shopping"></i> Cart
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <div class="section">
+    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    <div class="container">
+      
+      <details>
+        <summary>What kind of products are available on this website?</summary>
+        <p>We offer a wide range of electronic devices, with a special focus on the latest smartphones, accessories, and gadgets at the best prices.</p>
+      </details>
+
+      <details>
+        <summary>Are the products sold here original and brand new?</summary>
+        <p>Yes, all our products are 100% original, brand new, and come with a valid manufacturer’s warranty.</p>
+      </details>
+
+      <details>
+        <summary>How can I place an order?</summary>
+        <p>Simply browse through the products, add your favorite items to the cart, and proceed to checkout. You can complete your purchase by filling in your details and making a secure payment.</p>
+      </details>
+
+      <details>
+        <summary>Do you offer Cash on Delivery (COD)?</summary>
+        <p>Currently, we support multiple payment methods including UPI, debit/credit cards, and net banking. COD availability depends on your location and will be shown during checkout.</p>
+      </details>
+
+      <details>
+        <summary>How long will delivery take?</summary>
+        <p>Orders are usually delivered within 3–7 business days, depending on your pin code and product availability.</p>
+      </details>
+
+      <details>
+        <summary>Can I return or exchange a product?</summary>
+        <p>Yes, we have a 7-day easy return and exchange policy for eligible products. Please ensure the item is unused and in original packaging.</p>
+      </details>
+
+      <details>
+        <summary>How do I track my order?</summary>
+        <p>Once your order is shipped, you will receive a tracking link via email and SMS. You can also track your order directly from the My Orders section of your account.</p>
+      </details>
+
+      <details>
+        <summary>Do you offer discounts on smartphones?</summary>
+        <p>Yes, we regularly provide special discounts, festive offers, and exclusive deals on leading smartphone brands like Apple, Vivo, Realme, and OnePlus.</p>
+      </details>
+
+      <details>
+        <summary>Is my payment information safe on this website?</summary>
+        <p>Absolutely! We use secure payment gateways and SSL encryption to ensure your personal and financial details are completely safe.</p>
+      </details>
+
+      <details>
+        <summary>How do I contact customer support?</summary>
+        <p>You can reach our support team via the Contact Us page, email, or live chat. Our customer care team is available 24/7 to help you with any queries.</p>
+      </details>
+
+    </div>
+  </div>
+
+
+
+
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Logo & About -->
+      <div class="footer-col">
+        <h2 class="footer-logo"><i class="fa-solid fa-plug"></i> Electronics</h2>
+        <p>
+          Explore the future of electronics with premium smartphones, laptops, 
+          smartwatches, and smart TVs. Technology designed for performance and lifestyle.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="./home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="./aboutus.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+          <!-- <li><a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li> -->
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="./faq.html">FAQ</a></li>
+          <!-- <li><a href="#">Shipping & Returns</a></li> -->
+          <li><a href="./warenty.html">Warranty</a></li>
+          <li><a href="./contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Electronics Store | All Rights Reserved</p>
+    </div>
+  </footer>
+
+
+
+
+
+  <script>
+
+
+     const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    });
+
+
+
+  </script>
+ 
+</body>
+</html>

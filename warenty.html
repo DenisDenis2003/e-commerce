@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/warenty.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <i class="fa-solid fa-plug"></i> Electronics
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search the device...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <!-- Links -->
+    <div class="nav-links">
+      <a href="./home.html"><i class="fa-solid fa-house"></i> Home</a>
+      <!-- <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a> -->
+      <a href="./aboutus.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="#"><i class="fa-solid fa-cart-shopping"></i> Cart
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+
+  <!-- Warranty Banner -->
+  <section class="warranty-banner">
+    <h1>WARRANTY & SUPPORT</h1>
+    <p>Peace of mind with every purchase — because you deserve the best support.</p>
+  </section>
+
+  <!-- Warranty Info Cards -->
+  <section class="warranty-info">
+    <div class="warranty-card">
+      <h2>Standard Warranty</h2>
+      <p>
+        All products come with a standard 1-year manufacturer warranty that
+        covers hardware defects and performance issues not caused by physical
+        damage.
+      </p>
+    </div>
+
+    <div class="warranty-card">
+      <h2>Extended Warranty</h2>
+      <p>
+        Upgrade to our extended 2 or 3-year warranty plans during checkout for
+        added protection. Covers manufacturing defects, power failures, and
+        more.
+      </p>
+    </div>
+
+    <div class="warranty-card">
+      <h2>What's Not Covered</h2>
+      <ul>
+        <li>Accidental damage</li>
+        <li>Water damage (unless waterproof-rated)</li>
+        <li>Third-party modifications</li>
+        <li>Normal wear and tear</li>
+      </ul>
+    </div>
+
+    <div class="warranty-card">
+      <h2>How to Claim</h2>
+      <p>
+        Contact our <a href="support.html">support team</a> with your order ID
+        and device details. Claims are usually processed within 3–5 business
+        days.
+      </p>
+    </div>
+  </section>
+
+
+
+  
+
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Logo & About -->
+      <div class="footer-col">
+        <h2 class="footer-logo"><i class="fa-solid fa-plug"></i> Electronics</h2>
+        <p>
+          Explore the future of electronics with premium smartphones, laptops, 
+          smartwatches, and smart TVs. Technology designed for performance and lifestyle.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="./home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="./aboutus.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+          <!-- <li><a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li> -->
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="./faq.html">FAQ</a></li>
+          <!-- <li><a href="#">Shipping & Returns</a></li> -->
+          <li><a href="#">Warranty</a></li>
+          <li><a href="./contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Electronics Store | All Rights Reserved</p>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+  <script>
+
+     const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    });
+
+  </script>
+</body>
+</html>
