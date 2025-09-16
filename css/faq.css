@@ -1,9 +1,15 @@
-  * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body{
+     margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0a1a2f;
+      color: #fff;
+}
 
 /* Navbar */
 .navbar {
@@ -124,14 +130,14 @@
     }
 }
 
-
+/* 
 body {
       font-family: Arial, sans-serif;
       background-color: #0a0f1c;
       color: #fff;
       margin: 0;
       padding: 0;
-    }
+    } */
 
     .section {
       max-width: 900px;
@@ -144,7 +150,7 @@ body {
       font-size: 2rem;
       margin-bottom: 30px;
       color: #00e0ff;
-      text-shadow: 0 0 8px #00e0ff;
+      /* text-shadow: 0 0 8px #00e0ff; */
     }
 
     .container {

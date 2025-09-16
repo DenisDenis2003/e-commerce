@@ -54,7 +54,7 @@
       overflow: auto;
     }
     footer {
-      background: rgb(136, 209, 11);
+      background: darkcyan;
       grid-area: f;
       display: flex;
       justify-content: center;
@@ -196,4 +196,10 @@
 }
 .wholeform{
   width: 300px;
+}
+
+.redcolor {
+  color: #ff4d6d;
+  font-size: 13px;
+  /* margin-top: 4px; */
 }

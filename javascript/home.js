@@ -42,17 +42,31 @@ products.forEach(p => {
 
 
   // add to cart count
- let cartCount = document.querySelector("#cart-count")
- let cartBtn = document.querySelectorAll(".cardbtn")
+//  let cartCount = document.querySelector("#cart-count");
+// let cartBtn = document.querySelectorAll(".cardbtn");
 
-cartBtn.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    let count = parseInt(cartCount.innerText) || 0;
-    count++;
-    cartCount.innerText = count;
-  });
-});
+// // Track added items with array
+// let addedProducts = [];
+
+// cartBtn.forEach((btn, index) => {
+//   btn.addEventListener("click", (e) => {
+//     e.preventDefault();
+
+//     // Use index or product id as unique identifier
+//     let productId = index;
+
+//     if (addedProducts.includes(productId)) {
+//       alert("You already added this product to cart!");
+//     } else {
+//       addedProducts.push(productId); // add to array
+//       let count = parseInt(cartCount.innerText) || 0;
+//       count++;
+//       cartCount.innerText = count;
+//       alert("Product added to cart!");
+//     }
+//   });
+// });
+
 
 
 //click logout then go to login page
@@ -71,48 +85,78 @@ let lgbtn = document.querySelectorAll(".logout")
 });
 
 
-// store cart details in local storage
-
-// let productcard = document.querySelectorAll(".product-card")
-
-// let a = JSON.parse(localStorage.getItem("productdetails")) || [];
-
-// productcard.forEach((ele)=>{
-//       let prname = ele.querySelector(".productname").innerText
-//       let proldprice = ele.querySelector(".old-price").innerText
-//       let prnewprice = ele.querySelector(".new-price").innerText
-//       let prdiscount = ele.querySelector(".discount").innerText
-//       let prdiscountbadge = ele.querySelector(".discount-badge").innerText
 
 
-//       let isCheck =  a.filter((ele)=> ele.pname === prname && ele.poldprice ===proldprice &&
-//                         ele.pnewprice === prnewprice && ele.pdiscount === prdiscount && 
-//                         ele.pdiscountbadge === prdiscountbadge)
+// let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-//       if(isCheck.length === 0){
+// update badge
+// function updateCartCount() {
+//   document.getElementById("cart-count").textContent = cart.length;
+// }
 
-//         let productdetails = {
-//         pname : prname,
-//         poldprice : proldprice,
-//         pnewprice : prnewprice,
-//         pdiscount : prdiscount,
-//         pdiscountbadge : prdiscountbadge
-//       }
+// add to cart
+// document.querySelectorAll(".cardbtn").forEach((btn) => {
+//   btn.addEventListener("click", (e) => {
+//     let card = e.target.closest(".product-card");
+//     let product = {
+//       img: card.querySelector("img").src,
+//       name: card.querySelector(".productname").innerText,
+//       price: card.querySelector(".new-price").innerText
+//     };
+//     cart.push(product);
+//     localStorage.setItem("cart", JSON.stringify(cart));
+//     alert("card added success")
+//     // updateCartCount();
+//   });
+// });
 
-
-
-//       a.push(productdetails);
-//       console.log(a);
-
-//       }
-      
-// })
-
-//  localStorage.setItem("productdetails",JSON.stringify(a))
+// show count on page load
+// updateCartCount();
 
 
 
 
+
+
+
+let cartCount = document.querySelector("#cart-count");
+let cartBtn = document.querySelectorAll(".cardbtn");
+
+// Load cart from localStorage (or empty array)
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Update cart count on page load
+cartCount.innerText = cart.length;
+
+// Add event listeners
+cartBtn.forEach((btn, index) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let card = e.target.closest(".product-card");
+    let product = {
+      id: index, // unique id
+      img: card.querySelector("img").src,
+      name: card.querySelector(".productname").innerText,
+      price: card.querySelector(".new-price").innerText,
+    };
+
+    // ✅ Check with filter 
+    let exists = cart.filter((item) => item.id === product.id);
+
+    if (exists.length > 0) {
+      alert("You already added this product to cart!");
+    } else {
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Update cart count
+      cartCount.innerText = cart.length;
+
+      alert("Product added to cart!");
+    }
+  });
+});
 
 
  

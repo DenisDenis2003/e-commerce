@@ -5,7 +5,10 @@
 }
 
 body{
-     background-color: #0a0f1f;
+     margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0a1a2f;
+      color: #fff;
 }
 
 /* Navbar */
@@ -158,17 +161,17 @@ body{
   font-size: 48px;
   margin-bottom: 15px;
   color: #00e0ff;
-  text-shadow: 0 0 10px rgba(0,224,255,0.7);
+  /* text-shadow: 0 0 10px rgba(0,224,255,0.7); */
   animation: glow 2s infinite alternate;
 }
-@keyframes glow {
-  from {
-     text-shadow: 0 0 10px #00e0ff; /*1-horizonta,2-vertical,3-blur */
-     }
+/* @keyframes glow {
+  from { */
+   /*  text-shadow: 0 0 10px #00e0ff;            1-horizonta,2-vertical,3-blur */
+     /* }
   to {
      text-shadow: 0 0 25px #00e0ff, 0 0 50px #00e0ff;
      }
-}
+} */
 .diamondrotate {
   width: 25px;
   height: 25px;
@@ -246,9 +249,9 @@ body{
       color: #00e0ff;
       text-transform: uppercase;
       margin-bottom: 40px;
-      text-shadow: 0 0 10px rgba(0,224,255,0.7), 
+      /* text-shadow: 0 0 10px rgba(0,224,255,0.7), 
                    0 0 20px rgba(0,224,255,0.6), 
-                   0 0 30px rgba(0,224,255,0.5);
+                   0 0 30px rgba(0,224,255,0.5); */
       animation: glowText 2s infinite alternate;
       /* position: relative; */
       /* display: inline-block; */
@@ -263,14 +266,14 @@ body{
       border-radius: 2px;
       box-shadow: 0 0 15px #00e0ff;
     } */
-    @keyframes glowText {
+    /* @keyframes glowText {
       from{
          text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff; 
         }
       to { 
         text-shadow: 0 0 25px #00e0ff, 0 0 45px #00e0ff, 0 0 60px #00e0ff; 
       }
-    }
+    } */
 
     .cards-container {
       display: flex;
@@ -302,6 +305,7 @@ body{
     }
     .product-card img {
       width: 100%;
+      height: 300px;
       border-radius: 10px;
       margin-bottom: 15px;
     }
@@ -605,7 +609,7 @@ body{
 
     .categories {
       padding: 40px 8%;
-      background: #040d1a;
+      /* background: #040d1a; */
       color: #fff;
       text-align: center;
     }
@@ -614,7 +618,7 @@ body{
       font-size: 2.5rem;
       color: #00f0ff;
       margin-bottom: 40px;
-      text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+      /* text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff; */
     }
 
     /* Grid Layout */

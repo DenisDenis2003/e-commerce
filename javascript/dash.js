@@ -56,9 +56,8 @@ function renderProducts() {
               <td>${ele.poldprice}</td>
               <td>${ele.pnewprice}</td>
               <td>${ele.pdiscount}</td>
-              <td>${ele.pdiscountbadge}</td>
               <td> <button type="submit" class="btns" onclick="edit(${index})">Edit</button>
-               <button type="submit">Delete</button></td>
+               <button type="submit" id="deletebtn" onclick="deleteItem(${index})">Delete</button></td>
               </tr>     
       `;
       tableBody2.innerHTML += row;
@@ -67,6 +66,28 @@ function renderProducts() {
   }
 }
 renderProducts()
+
+//delete in table
+
+function deleteItem(id){
+
+  let c = confirm("Do you want to delete this item ?")
+
+  if(c){
+    let productdetails = JSON.parse(localStorage.getItem("productdetails"))
+
+  let remaining =productdetails.filter((ele,index) => index != id)
+
+  localStorage.setItem("productdetails",JSON.stringify(remaining))
+
+  alert("Your Product is deleted")
+  renderProducts()
+  }else{
+    alert("Thank you, Your data id safe..")
+  }
+
+}
+
 
 //edit form
 function edit(id){
@@ -85,39 +106,38 @@ function edit(id){
   //hide button
   document.querySelector(".uptbtn").style.display = "block"
   document.querySelector(".smtbtn").style.display = "none"
-
+}
   //update
 
-  let updatebtn =  document.querySelector(".uptbtn")
-  updatebtn.addEventListener("click",(e)=>{
-    e.preventDefault()
+  // document.querySelector(".uptbtn").addEventListener("click",(e)=>{
+  //   e.preventDefault()
 
-  let productname = document.querySelector(".productname").value
-  let ogprice = document.querySelector(".ogprice").value
-  let dsprice = document.querySelector(".dsprice").value
-  let offprecentage = document.querySelector(".offprecentage").value
-  let pimg = document.querySelector(".pimg").value
-  let pindex = document.querySelector(".pindex").value;
+  // let productname = document.querySelector(".productname").value
+  // let ogprice = document.querySelector(".ogprice").value
+  // let dsprice = document.querySelector(".dsprice").value
+  // let offprecentage = document.querySelector(".offprecentage").value
+  // let pimg = document.querySelector(".pimg").value
+  // let pindex = document.querySelector(".pindex").value;
 
 
-  let updatedproducts =  JSON.parse(localStorage.getItem("productdetails"))
+  // let updatedproducts =  JSON.parse(localStorage.getItem("productdetails"))
 
-   let setproducts = updatedproducts.map((ele,index)=>
-    index == pindex ? { pname: productname, productimg: pimg, poldprice: ogprice, pnewprice: dsprice, 
-      pdiscount: offprecentage, pdiscountbadge: offprecentage } : ele
-  )
+  //  let setproducts = updatedproducts.map((ele,index)=>
+  //   index == pindex ? { pname: productname, productimg: pimg, poldprice: ogprice, pnewprice: dsprice, 
+  //     pdiscount: offprecentage} : ele
+  // )
 
-  localStorage.setItem("productdetails",JSON.stringify(setproducts))
-  alert("Update Successfully")
-  renderProducts()
+  // localStorage.setItem("productdetails",JSON.stringify(setproducts))
+  // alert("Update Successfully")
+  // renderProducts()
 
-    document.querySelector(".uptbtn").style.display = "none"
-  document.querySelector(".smtbtn").style.display = "block"
+  // document.querySelector(".uptbtn").style.display = "none"
+  // document.querySelector(".smtbtn").style.display = "block"
 
-  document.querySelector(".form").reset()
+  // document.querySelector(".form").reset()
 
-  })
-}
+  // })
+
 
 
 //click logout then go to login page
@@ -200,13 +220,65 @@ let btn = document.querySelector(".smtbtn")
 btn.addEventListener("click", (e) => {
   e.preventDefault()
 
+  let pimg = document.querySelector(".pimg").value
   let productname = document.querySelector(".productname").value
   let ogprice = document.querySelector(".ogprice").value
   let dsprice = document.querySelector(".dsprice").value
   let offprecentage = document.querySelector(".offprecentage").value
-  let pimg = document.querySelector(".pimg").value
+  
+  let pimgerror = document.querySelector("#pimgerror")
+  let productnameerror = document.querySelector("#productnameerror")
+  let ogpriceerror = document.querySelector("#ogpriceerror")
+  let dspriceerror = document.querySelector("#dspriceerror")
+  let offprecentageerror = document.querySelector("#offprecentageerror")
 
-  let details = {
+  const urlPattern = /^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/;
+
+
+  let isproductname, isogprice, isdsprice, isoffprecentage, ispimg = false
+
+
+  if(pimg === ""){
+    pimgerror.innerText = "Enter the url"
+    isproductname = false;
+  }if (!urlPattern.test(pimg)) {
+    pimgerror.innerText = "Enter the correct url"
+    isproductname = false;
+  } 
+  else{
+    isproductname = true
+  }
+
+  if(productname === ""){
+    productnameerror.innerText = "Enter the product name with feacture"
+    isogprice = false;
+  }else{
+    isogprice = true
+  }
+
+  if(ogprice === ""){
+    ogpriceerror.innerText = "Enter the original price"
+    isdsprice = false;
+  }else{
+    isdsprice = true
+  }
+
+  if(dsprice === ""){
+    dspriceerror.innerText = "Enter the discount price"
+    isoffprecentage = false;
+  }else{
+    isoffprecentage = true
+  }
+
+  if(offprecentage === ""){
+    offprecentageerror.innerText = "Enter the offer precentage"
+    ispimg = false;
+  }else{
+    ispimg = true
+  }
+
+  if(isproductname && isogprice && isdsprice && isoffprecentage && ispimg){
+     let details = {
     productimg: pimg,
     pname: productname,
     poldprice: ogprice,
@@ -218,14 +290,18 @@ btn.addEventListener("click", (e) => {
   a.push(details)
 
   localStorage.setItem("productdetails", JSON.stringify(a))
+   
+  localStorage.setItem("defaultproductdetails", JSON.stringify(a))
 
+  document.querySelector(".form").reset()
 
-  document.querySelector(".productname").value = ""
-  document.querySelector(".ogprice").value = ""
-  document.querySelector(".dsprice").value = ""
-  document.querySelector(".offprecentage").value = ""
-
+  pimgerror.style.display = "none"
+  productnameerror.style.display = "none"
+  ogpriceerror.style.display = "none"
+  dspriceerror.style.display = "none"
+  offprecentageerror.style.display = "none"
   renderProducts()
+  }
 })
 
 
@@ -255,3 +331,33 @@ if (contactusdetails.length === 0) {
     tBody.innerHTML += row;
   });
 }
+
+
+document.querySelector(".uptbtn").addEventListener("click",(e)=>{
+    e.preventDefault()
+
+  let productname = document.querySelector(".productname").value
+  let ogprice = document.querySelector(".ogprice").value
+  let dsprice = document.querySelector(".dsprice").value
+  let offprecentage = document.querySelector(".offprecentage").value
+  let pimg = document.querySelector(".pimg").value
+  let pindex = document.querySelector(".pindex").value;
+
+
+  let updatedproducts =  JSON.parse(localStorage.getItem("productdetails"))
+
+   let setproducts = updatedproducts.map((ele,index)=>
+    index == pindex ? { pname: productname, productimg: pimg, poldprice: ogprice, pnewprice: dsprice, 
+      pdiscount: offprecentage} : ele
+  )
+
+  localStorage.setItem("productdetails",JSON.stringify(setproducts))
+  alert("Update Successfully")
+  renderProducts()
+
+  document.querySelector(".uptbtn").style.display = "none"
+  document.querySelector(".smtbtn").style.display = "block"
+
+  document.querySelector(".form").reset()
+
+  })

@@ -35,3 +35,20 @@
 
 
    })
+
+
+   //logout
+   let lgbtn = document.querySelectorAll(".logout")
+
+   lgbtn.forEach(ele => {
+      ele.addEventListener("click",()=>{
+      let logoutCheck = confirm("Do you want to logout ?")
+      setTimeout(()=>{
+        if(logoutCheck == 1){
+        window.location.href = "login.html"
+      }
+      },1000)
+      
+    })
+});
+

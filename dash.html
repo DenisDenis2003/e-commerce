@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    Dashboard
+   Admin
   </header>
   <aside>
     <ul>
@@ -33,10 +33,10 @@
           <h2 id="totalProducts">0</h2>
           <p>Total Products</p>
         </div>
-        <div class="card">
+        <!-- <div class="card">
           <h2 id="totalOrders">0</h2>
           <p>Total Orders</p>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -65,31 +65,37 @@
       <div class="wholeform">
 
           <form action="" class="form"> 
-            <input type="text" class="pindex">
+            <input type="text" class="pindex" style="display: none;"> 
               <section>
                   <label for="" >Enter image Url</label>
-                  <input type="url" class="pimg">
+                  <input type="url" class="pimg" required>
+                   <span id="pimgerror" class="redcolor"></span>
               </section>
               <section>
                   <label for="" >Product Name With feacture :</label>
-                  <input type="text" class="productname">
+                  <input type="text" class="productname" required>
+                   <span id="productnameerror" class="redcolor"></span>
               </section>
               <section>
                   <label for="">Original Price :</label>
-                  <input type="number" class="ogprice">
+                  <input type="text" class="ogprice" required placeholder="Eg : $45,000">
+                   <span id="ogpriceerror" class="redcolor"></span>
               </section>
               <section>
                   <label for="">Discount Price :</label>
-                  <input type="number" class="dsprice">
+                  <input type="text" class="dsprice" required placeholder="Eg : $35,000">
+                   <span id="dspriceerror" class="redcolor"></span>
               </section>
               <section>
                   <label for="">Offer precentage :</label>
-                  <input type="text" class="offprecentage">
+                  <input type="text" class="offprecentage" required placeholder="8% OFF">
+                  <span id="offprecentageerror" class="redcolor"></span>
               </section>
               <section>
                   <button type="reset">Reset</button>
-                   <button type="submit" class="uptbtn">Update</button>
+                 
                   <button type="submit" class="smtbtn">Submit</button>
+                    <button type="submit" class="uptbtn">Update</button>
               </section>
 
         </form>
@@ -103,9 +109,9 @@
             <th>Img url</th>
             <th>Product Name With feacture</th>
             <th>Original Price</th>
-            <th>Offer precentage</th>
+            <th>Discount Price</th>
             <th>Offer Precentage</th>
-            <th>Offer Precentage</th>
+            <!-- <th>Offer Precentage</th> -->
             <th>Actions</th>
           </tr>
         </thead>
