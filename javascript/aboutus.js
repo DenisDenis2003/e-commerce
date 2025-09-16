@@ -15,7 +15,7 @@ let lgbtn = document.querySelectorAll(".logout")
       let logoutCheck = confirm("Do you want to logout ?")
       setTimeout(()=>{
         if(logoutCheck == 1){
-        window.location.href = "login.html"
+        window.location.href = "index.html"
       }
       },1000)
       

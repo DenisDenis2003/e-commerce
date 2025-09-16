@@ -77,7 +77,7 @@ let lgbtn = document.querySelectorAll(".logout")
       let logoutCheck = confirm("Do you want to logout ?")
       setTimeout(()=>{
         if(logoutCheck == 1){
-        window.location.href = "login.html"
+        window.location.href = "index.html"
       }
       },1000)
       
@@ -85,33 +85,6 @@ let lgbtn = document.querySelectorAll(".logout")
 });
 
 
-
-
-// let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// update badge
-// function updateCartCount() {
-//   document.getElementById("cart-count").textContent = cart.length;
-// }
-
-// add to cart
-// document.querySelectorAll(".cardbtn").forEach((btn) => {
-//   btn.addEventListener("click", (e) => {
-//     let card = e.target.closest(".product-card");
-//     let product = {
-//       img: card.querySelector("img").src,
-//       name: card.querySelector(".productname").innerText,
-//       price: card.querySelector(".new-price").innerText
-//     };
-//     cart.push(product);
-//     localStorage.setItem("cart", JSON.stringify(cart));
-//     alert("card added success")
-//     // updateCartCount();
-//   });
-// });
-
-// show count on page load
-// updateCartCount();
 
 
 
