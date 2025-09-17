@@ -41,7 +41,7 @@ function renderProducts() {
   if (productdetails.length == 0) {
     tableBody2.innerHTML = `<tr> 
                                  <td colspan="5" style="text-align:center; color:red;">
-                                          No Customers Found
+                                          No Products Found
                                  </td>      
                               </tr>`;
   } else {
@@ -326,7 +326,7 @@ let tBody = document.querySelector(".usercontact tbody");
 if (contactusdetails.length === 0) {
   tBody.innerHTML = `<tr>
                        <td colspan="4" style="text-align:center; color:red;">
-                         No Customers Found
+                         No Messages Found
                        </td>
                      </tr>`;
 } else {
