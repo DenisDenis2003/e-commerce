@@ -325,8 +325,9 @@ body{
       color: #e60000;
       font-size: 20px;
       font-weight: bold;
+      display: inline-block;
     }
-    .new-price .discount {
+     .discount {
       color: green;
       font-size: 14px;
       margin-left: 5px;

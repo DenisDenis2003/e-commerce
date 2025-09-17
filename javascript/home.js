@@ -6,7 +6,9 @@
       hamburger.classList.toggle("active");
     });
 
-
+//  <button><i class="fa-regular fa-heart"></i></button>
+//           <button><i class="fa-solid fa-share-nodes"></i></button>
+//           <button><i class="fa-regular fa-eye"></i></button>
 
 // Correct container selector
 const container = document.querySelector(".cards-container");
@@ -21,16 +23,16 @@ products.forEach(p => {
   card.innerHTML = `
   
         <div class="hover-icons">
-          <button><i class="fa-regular fa-heart"></i></button>
-          <button><i class="fa-solid fa-share-nodes"></i></button>
+           <button><i class="fa-regular fa-heart"></i></button>
+        <button><i class="fa-solid fa-share-nodes"></i></button>
           <button><i class="fa-regular fa-eye"></i></button>
           <button class="cardbtn"><i class="fa-solid fa-bag-shopping"></i></button>
         </div>
       <img src="${p.productimg}" alt="${p.pname}">
         <h3 class="productname">${p.pname}</h3>
-        <p class="old-price">${p.poldprice}</p>
-        <p class="new-price">${p.pnewprice} <span class="discount">${p.pdiscount}</span></p>
-        <span class="discount-badge">${p.pdiscountbadge}</span>
+        <p class="old-price">$${p.poldprice}</p>
+        <p class="new-price">$${p.pnewprice} <span class="discount">${p.pdiscount}% OFF</span></p>
+        <span class="discount-badge">${p.pdiscount}% OFF</span>
 
         `;
   container.appendChild(card);

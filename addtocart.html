@@ -230,6 +230,19 @@
       text-align: right;
     }
 
+     button {
+      background: linear-gradient(135deg, #00ffcc, #0099ff);
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0px 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+
     .buy-now-btn {
       background: linear-gradient(135deg, #00ffcc, #0099ff);
       color: #fff;
@@ -411,6 +424,8 @@
       }
     }
 
+    
+
   </style>
 </head>
 <body>
@@ -454,7 +469,7 @@
   </div>
 
   <div class="totalcost">
-    <span>Total Costx :</span>
+    <span id="total">Total :$</span>
     <span>0</span>
   </div>
   
@@ -558,7 +573,7 @@ function renderProducts() {
           <div class="item-price">${item.price}</div>
           <div class="item-actions">
             <span>Quantity : </span>
-            <button class="decre" data-id="${index}">➖</button>
+            <button class="decre" data-id="${index}" onclick="rem(${index})">➖</button>
             <span class="qty">${item.quantity}</span>
             <button class="incre" data-id="${index}">➕</button>
             <button type="button" class="deletebtn" data-id="${index}">🗑️ Delete</button>
@@ -622,28 +637,38 @@ function deleteItem(id) {
     alert("Your product is deleted");
     renderProducts();
   } else {
-    alert("Thank you, your data is safe.");
+    alert("Thank you, your product is safe.");
   }
 }
 
-// Initial render
+
 renderProducts();
 
 // Buy Now button
 const buyNowBtn = document.querySelector(".buy-now-btn");
+let total = document.querySelector("#total").innerHTML
 
 buyNowBtn.addEventListener("click", () => {
   const totalCost = document.querySelector(".totalcost span:last-child").textContent;
+  if(totalCost==0){
+    alert("Please add Products")
+  }
+ 
+   
+ else  {
   let confirmBuy = confirm(`Do you want to buy now?\nTotal Cost: ₹${totalCost}`);
-  if (confirmBuy) {
-    alert("✅ Thank you for your purchase!");
+  
+if(confirmBuy){
+  alert("✅ Thank you for your purchase!");
     window.location.href = "home.html"
+}
+    else {
+    alert("Purchase cancelled.");
+  }
     // you can clear cart if you want:
     // localStorage.removeItem("cart");
     // renderProducts();
-  } else {
-    alert("Purchase cancelled.");
-  }
+  } 
 });
 
 
@@ -661,6 +686,14 @@ lgbtn.forEach(ele => {
 });
 
 
+function rem(index){
+  let qtyEl = document.querySelectorAll(".qty")[index];
+  let qty = parseInt(qtyEl.innerHTML);
+
+  if(qty <= 1){
+    alert("Quantity cannot be less than 1");
+  }
+}
 </script>
 
 </body>

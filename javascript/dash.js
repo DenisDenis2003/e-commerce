@@ -21,7 +21,7 @@ if (customers.length === 0) {
             <td>${index + 1}</td>
             <td>${ele.UserName}</td>
             <td>${ele.Email}</td>
-            <td>${ele.Passwoard}</td>
+            
           </tr>
         `;
     tableBody.innerHTML += row;
@@ -53,9 +53,9 @@ function renderProducts() {
                   <img src ="${ele.productimg}" alt="" width="100px" height="100px">
               </td>
               <td>${ele.pname}</td>
-              <td>${ele.poldprice}</td>
-              <td>${ele.pnewprice}</td>
-              <td>${ele.pdiscount}</td>
+              <td>$ ${ele.poldprice}</td>
+              <td>$ ${ele.pnewprice}</td>
+              <td>${ele.pdiscount}% OFF</td>
               <td> <button type="submit" class="btns" onclick="edit(${index})">Edit</button>
                <button type="submit" id="deletebtn" onclick="deleteItem(${index})">Delete</button></td>
               </tr>     
@@ -208,101 +208,112 @@ contactlink.addEventListener("click", (e) => {
 
 
 document.getElementById("totalCustomers").innerText = customers.length
-document.getElementById("totalProducts").innerText = productdetails.length + 16
+document.getElementById("totalProducts").innerText = productdetails.length 
 
 
 
+  let a = JSON.parse(localStorage.getItem("productdetails")) || [];
 
-let a = JSON.parse(localStorage.getItem("productdetails")) || [];
+    let btn = document.querySelector(".smtbtn");
 
-let btn = document.querySelector(".smtbtn")
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-btn.addEventListener("click", (e) => {
-  e.preventDefault()
+      let pimg = document.querySelector(".pimg").value.trim();
+      let productname = document.querySelector(".productname").value.trim();
+      let ogprice = document.querySelector(".ogprice").value.trim();
+      let dsprice = document.querySelector(".dsprice").value.trim();
+      let offprecentage = document.querySelector(".offprecentage").value.trim();
 
-  let pimg = document.querySelector(".pimg").value
-  let productname = document.querySelector(".productname").value
-  let ogprice = document.querySelector(".ogprice").value
-  let dsprice = document.querySelector(".dsprice").value
-  let offprecentage = document.querySelector(".offprecentage").value
-  
-  let pimgerror = document.querySelector("#pimgerror")
-  let productnameerror = document.querySelector("#productnameerror")
-  let ogpriceerror = document.querySelector("#ogpriceerror")
-  let dspriceerror = document.querySelector("#dspriceerror")
-  let offprecentageerror = document.querySelector("#offprecentageerror")
+      let pimgerror = document.querySelector("#pimgerror");
+      let productnameerror = document.querySelector("#productnameerror");
+      let ogpriceerror = document.querySelector("#ogpriceerror");
+      let dspriceerror = document.querySelector("#dspriceerror");
+      let offprecentageerror = document.querySelector("#offprecentageerror");
 
-  const urlPattern = /^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/;
+      const urlPattern =
+        /^(https?:\/\/)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]*)?$/;
 
+      const re = /^[-+]?\d+$/;
+      const areg =/^[A-Za-z]+$/
 
-  let isproductname, isogprice, isdsprice, isoffprecentage, ispimg = false
+      // Flags
+      let ispimg = false,
+        isproductname = false,
+        isogprice = false,
+        isdsprice = false,
+        isoffprecentage = false;
 
+      // ✅ Image URL validation
+      if (pimg === "") {
+        pimgerror.innerText = "Enter the url";
+      } else if (!urlPattern.test(pimg)) {
+        pimgerror.innerText = "Enter the correct url";
+      } else {
+        pimgerror.innerText = "";
+        ispimg = true;
+      }
 
-  if(pimg === ""){
-    pimgerror.innerText = "Enter the url"
-    isproductname = false;
-  }if (!urlPattern.test(pimg)) {
-    pimgerror.innerText = "Enter the correct url"
-    isproductname = false;
-  } 
-  else{
-    isproductname = true
-  }
+      // ✅ Product name validation
+      if (productname === "") {
+        productnameerror.innerText = "Enter the product name with feature";
+      }else {
+        productnameerror.innerText = "";
+        isproductname = true;
+      }
 
-  if(productname === ""){
-    productnameerror.innerText = "Enter the product name with feacture"
-    isogprice = false;
-  }else{
-    isogprice = true
-  }
+      // ✅ Original price validation
+      if (ogprice === "") {
+        ogpriceerror.innerText = "Enter the original price";
+      } else if (!re.test(ogprice)) {
+        ogpriceerror.innerText = "Enter a valid number";
+      } else {
+        ogpriceerror.innerText = "";
+        isogprice = true;
+      }
 
-  if(ogprice === ""){
-    ogpriceerror.innerText = "Enter the original price"
-    isdsprice = false;
-  }else{
-    isdsprice = true
-  }
+      // ✅ Discount price validation
+      if (dsprice === "") {
+        dspriceerror.innerText = "Enter the discount price";
+      } else if (!re.test(dsprice)) {
+        dspriceerror.innerText = "Enter a valid number";
+      } else {
+        dspriceerror.innerText = "";
+        isdsprice = true;
+      }
 
-  if(dsprice === ""){
-    dspriceerror.innerText = "Enter the discount price"
-    isoffprecentage = false;
-  }else{
-    isoffprecentage = true
-  }
+      // ✅ Offer percentage validation
+      if (offprecentage === "") {
+        offprecentageerror.innerText = "Enter the offer percentage";
+      } else if (!re.test(offprecentage)) {
+        offprecentageerror.innerText = "Enter a valid number";
+      } else {
+        offprecentageerror.innerText = "";
+        isoffprecentage = true;
+      }
 
-  if(offprecentage === ""){
-    offprecentageerror.innerText = "Enter the offer precentage"
-    ispimg = false;
-  }else{
-    ispimg = true
-  }
+      // ✅ Final check
+      if (ispimg && isproductname && isogprice && isdsprice && isoffprecentage) {
+        let details = {
+          productimg: pimg,
+          pname: productname,
+          poldprice: ogprice,
+          pnewprice: dsprice,
+          pdiscount: offprecentage,
+          pdiscountbadge: offprecentage,
+        };
 
-  if(isproductname && isogprice && isdsprice && isoffprecentage && ispimg){
-     let details = {
-    productimg: pimg,
-    pname: productname,
-    poldprice: ogprice,
-    pnewprice: dsprice,
-    pdiscount: offprecentage,
-    pdiscountbadge: offprecentage
-  }
+        a.push(details);
 
-  a.push(details)
+        localStorage.setItem("productdetails", JSON.stringify(a));
+        localStorage.setItem("defaultproductdetails", JSON.stringify(a));
 
-  localStorage.setItem("productdetails", JSON.stringify(a))
-   
-  localStorage.setItem("defaultproductdetails", JSON.stringify(a))
+        document.querySelector(".form").reset();
 
-  document.querySelector(".form").reset()
+        renderProducts();
+      }
+    });
 
-  pimgerror.style.display = "none"
-  productnameerror.style.display = "none"
-  ogpriceerror.style.display = "none"
-  dspriceerror.style.display = "none"
-  offprecentageerror.style.display = "none"
-  renderProducts()
-  }
-})
 
 
 // customertablepush

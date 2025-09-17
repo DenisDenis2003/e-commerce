@@ -47,7 +47,7 @@
             perror.innerText = "Enter the password"
             isPass = false;
           }else if(upass.length < 8){
-             perror.innerText = "Confirm Password must be 8 charactor"
+             perror.innerText = "Password must be 8 charactor"
              isPass = false;
           }else{
             perror.innerText = ""
@@ -55,13 +55,13 @@
           }
 
           if(ucmpass === ""){
-            cperror.innerText = "Confirm the Passwoard"
+            cperror.innerText = "Confirm the Password"
             isCPass = false;
           }else if(upass.length < 8){
              cperror.innerText = "Confirm Password must be 8 charactor"
              isCPass = false;
           }else if(upass !== ucmpass){
-             cperror.innerText = "Passwords do not match"
+             cperror.innerText = "Password do not match"
              isCPass = false;
           }
           else{
@@ -93,7 +93,7 @@
 
             localStorage.setItem("Customers",JSON.stringify(a))
             alert("Register Successfully")
-            window.location.href = "login.html"
+            window.location.href = "index.html"
 
 
            

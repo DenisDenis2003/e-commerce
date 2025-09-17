@@ -14,9 +14,9 @@
   <aside>
     <ul>
       <li><a href="#" class="dashboardLink">Dashboard</a></li>
-      <li><a href="#" class="CustomerDisplay">Customer</a></li>
+      <li><a href="#" class="CustomerDisplay">Customers</a></li>
       <li><a href="#" class="productslink">Products</a></li>
-       <li><a href="#" class="contactlink">UserContact</a></li>
+       <li><a href="#" class="contactlink">Enquiry</a></li>
       <li><a href="#" class="logout">Logout</a></li>
     </ul>
   </aside>
@@ -30,8 +30,13 @@
           <p>Total Customers</p>
         </div>
         <div class="card">
+          <h2 id="totalCustomers">16</h2>
+          <p>Default Products</p>
+        </div>
+        
+        <div class="card">
           <h2 id="totalProducts">0</h2>
-          <p>Total Products</p>
+          <p>Dashboard Products</p>
         </div>
         <!-- <div class="card">
           <h2 id="totalOrders">0</h2>
@@ -48,7 +53,7 @@
                                             <th>S.No</th>
                                             <th>User Name</th>
                                             <th>Email</th>
-                                            <th>Password</th>
+                                            <!-- <th>Password</th> -->
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +67,7 @@
 
     <section class="products">
 
-      <div class="wholeform">
+   <center>  <div class="wholeform">
 
           <form action="" class="form"> 
             <input type="text" class="pindex" style="display: none;"> 
@@ -72,23 +77,23 @@
                    <span id="pimgerror" class="redcolor"></span>
               </section>
               <section>
-                  <label for="" >Product Name With feacture :</label>
+                  <label for="" >Product Name With feature</label>
                   <input type="text" class="productname" required>
                    <span id="productnameerror" class="redcolor"></span>
               </section>
               <section>
-                  <label for="">Original Price :</label>
-                  <input type="text" class="ogprice" required placeholder="Eg : $45,000">
+                  <label for="">Original Price</label>
+                  <input type="number" class="ogprice" required>
                    <span id="ogpriceerror" class="redcolor"></span>
               </section>
               <section>
-                  <label for="">Discount Price :</label>
-                  <input type="text" class="dsprice" required placeholder="Eg : $35,000">
+                  <label for="">Discount Price </label>
+                  <input type="number" class="dsprice" required>
                    <span id="dspriceerror" class="redcolor"></span>
               </section>
               <section>
-                  <label for="">Offer precentage :</label>
-                  <input type="text" class="offprecentage" required placeholder="8% OFF">
+                  <label for="">Offer precentage </label>
+                  <input type="number" class="offprecentage" required>
                   <span id="offprecentageerror" class="redcolor"></span>
               </section>
               <section>
@@ -100,7 +105,7 @@
 
         </form>
 
-      </div>
+      </div> </center> 
 
       <table>
         <thead>
@@ -150,7 +155,9 @@
 
   </main>
   <footer>
-    Footer
+    <div class="footer-bottom">
+      <p>© 2025 Electronics Store | All Rights Reserved</p>
+    </div>
   </footer>
 
 
