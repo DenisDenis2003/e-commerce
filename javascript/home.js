@@ -26,7 +26,7 @@ products.forEach(p => {
            <button><i class="fa-regular fa-heart"></i></button>
         <button><i class="fa-solid fa-share-nodes"></i></button>
           <button><i class="fa-regular fa-eye"></i></button>
-          <button class="cardbtn"><i class="fa-solid fa-bag-shopping"></i></button>
+          <button class="cardbtn"><i class="fa-solid fa-cart-plus"></i></button>
         </div>
       <img src="${p.productimg}" alt="${p.pname}">
         <h3 class="productname">${p.pname}</h3>

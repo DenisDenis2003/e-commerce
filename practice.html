@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard with Hamburger</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 50px auto 50px;
+      grid-template-areas:
+        "h h"
+        "s m"
+        "f f";
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background: darkcyan;
+      color: white;
+      grid-area: h;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      font-size: 18px;
+      justify-content: space-between;
+    }
+    /* Hamburger button */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    aside {
+      grid-area: s;
+      background-color: #222;
+      color: white;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+    aside ul {
+      list-style: none;
+    }
+    aside ul li {
+      margin: 8px 0;
+    }
+    aside ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 10px;
+      display: block;
+      background: #444;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    aside ul li a:hover {
+      background: #666;
+    }
+    main {
+      grid-area: m;
+      background: #f4f4f4;
+      padding: 20px;
+      overflow: auto;
+    }
+    footer {
+      background: darkcyan;
+      color: white;
+      grid-area: f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 500px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px auto 50px;
+        grid-template-areas:
+          "h"
+          "m"
+          "f";
+      }
+      aside {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 200px;
+        height: calc(100% - 50px);
+        transform: translateX(-100%);
+        z-index: 1000;
+      }
+      aside.active {
+        transform: translateX(0);
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span>Admin</span>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <aside id="sidebar">
+    <ul>
+      <li><a href="#" class="dashboardLink">Dashboard</a></li>
+      <li><a href="#" class="CustomerDisplay">Customers</a></li>
+      <li><a href="#" class="productslink">Products</a></li>
+      <li><a href="#" class="contactlink">Enquiry</a></li>
+      <li><a href="#" class="logout">Logout</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <section class="dashboardcontent">
+      <h1>Welcome to Dashboard</h1>
+      <div class="cards">
+        <div class="card">
+          <h2 id="totalCustomers">0</h2>
+          <p>Total Customers</p>
+        </div>
+        <div class="card">
+          <h2>16</h2>
+          <p>Default Products</p>
+        </div>
+        <div class="card">
+          <h2 id="totalProducts">0</h2>
+          <p>Dashboard Products</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 Electronics Store | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const sidebar = document.getElementById("sidebar");
+
+    hamburger.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

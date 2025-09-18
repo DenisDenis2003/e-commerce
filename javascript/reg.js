@@ -1,4 +1,4 @@
-      // Get customers from localStorage, default to empty array if not found
+      // Get customers from localStorage
         let a = JSON.parse(localStorage.getItem("Customers") || "[]");
 
         // console.log(a)
